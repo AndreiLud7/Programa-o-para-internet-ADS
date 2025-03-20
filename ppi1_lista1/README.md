@@ -1,0 +1,1 @@
+Este projeto é sobre alguns exercicios da turma de ads sobre programação para internet.Usei Html e css somente, sao alguns exercios apenas introdutorios sobre formularios ou curriculos e tabelas
