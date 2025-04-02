@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+        }
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #box1{
+            width: 100%;
+            height: 100%;
+            border: solid 1px ;
+            background-color: blueviolet;
+
+        }
+        #box2{
+            width: 100%;
+            height: 100%;
+            border: solid 1px;
+            background-color:green;
+        }
+        #box3{
+            width: 100%;
+            height: 100%;
+            border: solid 1px;
+            background-color:red;
+        }
+        #box4{
+            width: 100%;
+            height: 100%;
+            border: solid 1px;
+            background-color:yellow;
+        }
+/*a exibição ocorre dessa maneira por conta do uso do display flex onde ele alinha as divs de maneira
+horizontal, mas ao usar o flex direction column faz com que o "flex" se organize de maneira vertical
+e usando o height em 100% da view faz com que o body ocupe 100% da tela
+*/
+    </style>
+</head>
+<body>
+        <div id="box1">1</div>
+        <div id="box2">2</div>
+        <div id="box3">3</div>
+        <div id="box4">4</div>
+    
+</body>
+</html>
