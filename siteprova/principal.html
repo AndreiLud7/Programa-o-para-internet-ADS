@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Tintas</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            height: 85px;
+        }
+
+        #linkitem {
+            color: white;
+            text-decoration: none;
+        }
+
+        #linkitem:hover {
+            color: rgb(125, 125, 233);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .bemvindo {
+            background-color: #DDDDDD;
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            height: 90px;
+        }
+
+        .Produtos {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .box {
+            width: 300px;
+            height: auto;
+            border: solid;
+            border-radius: 10%;
+            padding: 10px;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10%;
+        }
+
+        .confira {
+            padding: 10px ;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .confira:hover {
+            background-color: rgb(125, 125, 233);
+        }
+
+        .footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Loja de Tintas</h2>
+            <a id="linkitem" href="#">Produtos</a>
+        </div>
+
+        <div class="bemvindo">
+            <h2>Bem vindo!</h2>
+            <p>Confira nossas ofertas</p>
+        </div>
+
+        <div class="Produtos">
+            <div class="box" id="box1">
+                <img src="imgs/azul.jfif" alt="Tinta azul">
+                <button class="confira">Conferir</button>
+            </div>
+            <div class="box" id="box2">
+                <img src="imgs/amarela.jfif" alt="Tinta amarela">
+                <button class="confira">Conferir</button>
+            </div>
+            <div class="box" id="box3">
+                <img src="imgs/vermelha.jfif" alt="Tinta vermelha">
+                <button class="confira">Conferir</button>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2025 Loja de Tintas. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
