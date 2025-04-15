@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+
         #container {
             position: absolute;
             right: 0;
@@ -20,10 +21,18 @@
         }
 
         .box {
+            display: flex;
+            align-items: center;
             border: solid 1px;
             width: 100%;
             height: 100px;
             margin: 7px;
+        }
+        img{
+            border: solid;
+            border-radius: 10px;
+            width: 30px;
+            height: 30px;
         }
 
         #div1 {
@@ -52,13 +61,14 @@
 </head>
 
 <body>
+
     <div id="container">
-        <div class="box" id="div1">Ola tudo bem?</div>
-        <div class="box" id="div2">estou bem sim, e voce?</div>
-        <div class="box" id="div3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime eaque, error,
+        <div class="box" id="div1"> <img src="download.png" alt=""> Ola tudo bem?</div>
+        <div class="box" id="div2"> <img src="download.png" alt=""> estou bem sim, e voce?</div>
+        <div class="box" id="div3"> <img src="download.png" alt=""> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime eaque, error,
             consequatur laboriosam quam explicabo nesciunt id fugiat, illo ipsa non porro natus. Adipisci, amet
             similique consectetur maxime voluptates fugit?</div>
-        <div class="box" id="div4">Criatura</div>
+        <div class="box" id="div4"> <img src="download.png" alt=""> Criatura</div>
         <div class="box" id="div5">Enviar mensagem</div>
         <button class="button">Enviar</button>
 
