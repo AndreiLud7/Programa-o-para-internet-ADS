@@ -1,0 +1,79 @@
+
+.bandeira {
+    width: 350px;
+    height: 250px;
+    border: solid;
+    margin: 10px;
+
+}
+
+#japao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bola {
+    width: 90px;
+    height: 90px;
+    border: solid;
+    border-radius: 80px;
+    background-color: red;
+}
+
+.listra {
+    border: solid;
+    height: 100%;
+    width: 100%;
+}
+
+#listra1 {
+    background-color: black;
+}
+
+#listra2 {
+    background-color: red;
+}
+
+#listra3 {
+    background-color: gold;
+}
+
+#listra4 {
+    background-color: red;
+}
+
+#listra5 {
+    background-color: white;
+}
+
+#listra6 {
+    background-color: blue;
+}
+
+#listra7 {
+    background-color: green;
+}
+
+#listra8 {
+    background-color: white;
+}
+
+#listra9 {
+    background-color: red;
+}
+
+#Alemanha {
+    display: flex;
+    flex-direction: column;
+}
+
+#holanda {
+    display: flex;
+    flex-direction: column;
+}
+
+#italia {
+    display: flex;
+    flex-direction: row;
+}

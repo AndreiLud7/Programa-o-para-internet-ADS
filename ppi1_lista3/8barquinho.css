@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    background-color: rgb(223, 238, 255);
+}
+
+#barco {
+    position: absolute;
+    bottom: 70px;
+    left: -300px;
+    width: 150px;
+    animation: barcoAndando 15s linear infinite;
+}
+
+#barco img {
+    width: 100%;
+    height: auto;
+}
+
+@keyframes barcoAndando {
+    0% {
+        left: -300px;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+#nuvem {
+    position: absolute;
+    top: 50px;
+    left: -200px;
+    width: 200px;
+    height: 70px;
+    border: none;
+    background-color: white;
+    border-radius: 30%;
+    animation: nuvem 20s linear infinite;
+}
+
+
+@keyframes nuvem {
+    0% {
+        left: -200px;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+#mar {
+    width: 100%;
+    height: 120px;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+}
+
+#mar::before,
+#mar::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    border-radius: 30px;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), rgba(0, 132, 255, 0.7), rgba(255, 255, 255, 0.3));
+    animation: wave 6s infinite ease-in-out;
+}
+
+#mar::after {
+    animation-delay: 3s;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(0%);
+    }
+
+    50% {
+        transform: translateX(50%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
