@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="8.css">
+    <title>Document</title>
+    <style >
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="btn">clique aqui</button>
+</body>
+
+<script>
+    let botao = document.getElementById("btn");
+    botao.addEventListener("click", randomizeBodyColor);
+
+    function randomizeBodyColor() {
+        let color = randomColor();
+        document.body.style.backgroundColor = color;
+    }
+
+    function randomColor() {
+        return "#" + randomNumber() + randomNumber() + randomNumber();
+    }
+
+    function randomNumber() {
+        return Math.floor(Math.random() * 255).toString(16).padStart(2, '0');
+    }
+</script>
+</html>

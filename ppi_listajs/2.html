@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tipos de Variáveis e Operadores</h1>
+
+    <h2>Tipos</h2>
+    <p id="pstring"></p>
+    <p id="pnumero"></p>
+    <p id="pboolean"></p>
+    <p id="pundefined"></p>
+    <p id="pnull"></p>
+    <p id="pobjeto"></p>
+    <p id="parray"></p>
+
+    <h2>Operações entre tipos diferentes</h2>
+    <p id="op1"></p>
+    <p id="op2"></p>
+    <p id="op3"></p>
+    <p id="op4"></p>
+
+    <script>
+        let string = "Olá";
+        let numero = 10;
+        let booleano = true;
+        let indefinido;
+        let nulo = null;
+        let objeto = { nome: "João" };
+        let array = [1, 2, 3];
+
+        document.getElementById("pstring").innerText = "string: " + typeof string;
+        document.getElementById("pnumero").innerText = "number: " + typeof numero;
+        document.getElementById("pboolean").innerText = "boolean: " + typeof booleano;
+        document.getElementById("pundefined").innerText = "undefined: " + typeof indefinido;
+        document.getElementById("pnull").innerText = "null (typeof retorna 'object'): " + typeof nulo;
+        document.getElementById("pobjeto").innerText = "object: " + typeof objeto;
+        document.getElementById("parray").innerText = "array (typeof retorna 'object'): " + typeof array;
+
+        let resultado1 = string + numero;
+        let resultado2 = booleano * numero;
+        let resultado3 = string * numero;
+        let resultado4 = array + booleano;
+
+        console.log("string + number:", resultado1);
+        console.log("boolean * number:", resultado2);
+        console.log("string * number:", resultado3);
+        console.log("array + boolean:", resultado4);
+
+        document.getElementById("op1").innerText = '"Olá" + 10 = ' + resultado1 + ' A string é concatenada com o número.';
+        document.getElementById("op2").innerText = 'true * 10 = ' + resultado2 + ' true é convertido para 1.';
+        document.getElementById("op3").innerText = '"Olá" * 10 = ' + resultado3 + ' string não numérica multiplicada resulta em NaN.';
+        document.getElementById("op4").innerText = '[1,2,3] + true = ' + resultado4 + ' array vira string "1,2,3", concatenado com "true".';
+    </script>
+</body>
+</html>

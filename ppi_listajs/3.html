@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Calculadora de IMC</h2>
+
+  <input type="text" id="nome" placeholder="Nome">
+  <input type="number" id="peso" placeholder="Peso (kg)" step="0.1">
+  <input type="number" id="altura" placeholder="Altura (m)" step="0.01">
+  <button type="button" id="calcular">Calcular</button>
+
+  <p id="resultadoIMC"></p>
+  <p id="classificacao"></p>
+  <img id="imgPerfil" src="img/perfil.jpg" alt="Perfil de Saúde" width="200">
+
+  <script>
+    document.querySelector("#calcular").addEventListener("click", function () {
+      let nome = document.querySelector("#nome").value.trim();
+      let peso = parseFloat(document.querySelector("#peso").value);
+      let altura = parseFloat(document.querySelector("#altura").value);
+
+      if (!nome || isNaN(peso) || isNaN(altura) || altura === 0) {
+        alert("Preencha todos os campos corretamente.");
+        return;
+      }
+
+      let imc = peso / (altura * altura);
+      let imcFormatado = imc.toFixed(2);
+      document.querySelector("#resultadoIMC").innerHTML = nome + ", seu IMC é " + imcFormatado;
+
+
+      let classificacao = "";
+
+      if (imc < 18.5) {
+        classificacao = "Abaixo do peso";
+      } else if (imc < 24.9) {
+        classificacao = "Peso normal";
+      } else if (imc < 29.9) {
+        classificacao = "Sobrepeso";
+      } else if (imc < 34.9) {
+        classificacao = "Obesidade grau 1";
+      } else if (imc < 39.9) {
+        classificacao = "Obesidade grau 2";
+      } else {
+        classificacao = "Obesidade grau 3";
+      }
+
+      document.querySelector("#classificacao").innerHTML = "Classificação:" + classificacao;
+
+      let faixaIMC = Math.floor(imc);
+      let img = document.querySelector("#imgPerfil");
+
+      switch (true) {
+        case (faixaIMC < 18.5):
+          img.src = "./img/abaixopeso.png";
+          break;
+        case (faixaIMC < 25):
+          img.src = "./img/normal.png";
+          break;
+        case (faixaIMC < 30):
+          img.src = "./img/sobrepeso.png";
+          break;
+        case (faixaIMC < 35):
+          img.src = "./img/obesidade1.png";
+          break;
+        case (faixaIMC < 40):
+          img.src = "./img/obesidade2.png";
+          break;
+        default:
+          img.src = "./img/obesidade3.png";
+          break;
+      }
+    });
+  </script>
+</body>
+</html>
