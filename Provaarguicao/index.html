@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Produtos</title>
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #eaeaea;
+        }
+
+        .header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            height: 85px;
+        }
+
+        #linkitem {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        #linkitem:hover {
+            color: rgb(125, 125, 233);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .container {
+            display: grid;
+            grid-template-areas:
+                "titulo titulo titulo titulo"
+                "sidebar prod1 prod2 prod3"
+                "sidebar prod4 prod5 prod6";
+            gap: 30px;
+            padding: 20px;
+        }
+
+        h1 {
+            grid-area: titulo;
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            grid-area: sidebar;
+            background-color: #ccc;
+            border: solid 2px #999;
+            border-radius: 10px;
+            padding: 20px;
+            gap: 10px;
+        }
+
+        .box {
+            border: solid 3px;
+            border-radius: 10px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            transition: 0.8s;
+        }
+
+        .box:hover {
+            background-color: rgb(221, 211, 211);
+            scale: 1.05;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(125, 125, 233);
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        #box1 {
+            grid-area: prod1;
+        }
+
+        #box2 {
+            grid-area: prod2;
+        }
+
+        #box3 {
+            grid-area: prod3;
+        }
+
+        #box4 {
+            grid-area: prod4;
+        }
+
+        #box5 {
+            grid-area: prod5;
+        }
+
+        #box6 {
+            grid-area: prod6;
+        }
+
+        .footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 45px;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h2>Loja de Tintas</h2>
+        <a href="principal.html">Principal</a>
+    </div>
+
+    <div class="container">
+        <h1>Listagem de Produtos</h1>
+
+        <div class="sidebar">
+            <p><strong>Filtros:</strong></p>
+
+            <label for="categoria"><strong>Categoria:</strong></label>
+            <select name="categoria" id="categoria">
+                <option value="">Todas</option>
+                <option value="">Tinta</option>
+                <option value="">Acessórios</option>
+                <option value="">Utilitários</option>
+            </select>
+
+            <label><strong>Faixa de Preço:</strong></label>
+            <input type="number" placeholder="Mínimo">
+            <input type="number" placeholder="Máximo">
+
+            <label for="Cor"><strong>Cor:</strong></label>
+            <select name="Cor" id="Cor">
+                <option value="">Vermelha</option>
+                <option value="">Verde</option>
+                <option value="">Azul</option>
+                <option value="">Amarela</option>
+                <option value="">Roxa</option>
+                <option value="">Marrom</option>
+            </select>
+
+            <button type="button">Aplicar Filtros</button>
+        </div>
+
+        <div class="box" id="box1">
+            <img src="imgs/azul.jfif" alt="">
+            <a href="Detalhes.html">
+            <button type="button">Comprar</button>
+            </a>
+        </div>
+        <div class="box" id="box2">
+            <img src="imgs/amarela.jfif" alt="">
+            <button type="button">Comprar</button>
+        </div>
+        <div class="box" id="box3">
+            <img src="imgs/vermelha.jfif" alt="">
+            <button type="button">Comprar</button>
+        </div>
+        <div class="box" id="box4">
+            <img src="imgs/roxa.jfif" alt="">
+            <button type="button">Comprar</button>
+        </div>
+        <div class="box" id="box5">
+            <img src="imgs/verde.jfif" alt="">
+            <button type="button">Comprar</button>
+        </div>
+        <div class="box" id="box6">
+            <img src="imgs/marrom.jfif" alt="">
+            <button type="button">Comprar</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <a href="Contato.html">Ajuda</a>
+    </footer>
+</body>
+
+</html>
