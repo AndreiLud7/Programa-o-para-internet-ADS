@@ -7,6 +7,7 @@
     <title>Loja de Tintas</title>
     <style>
         body {
+
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -19,16 +20,7 @@
             height: 85px;
         }
 
-        #linkitem {
-            color: white;
-            text-decoration: none;
-        }
 
-        #linkitem:hover {
-            color: rgb(125, 125, 233);
-            cursor: pointer;
-            text-decoration: underline;
-        }
 
         .bemvindo {
             background-color: #DDDDDD;
@@ -77,8 +69,13 @@
             background-color: black;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             margin-top: 50px;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+            font-size: 20px;
         }
     </style>
 </head>
@@ -87,7 +84,7 @@
     <div class="container">
         <div class="header">
             <h2>Loja de Tintas</h2>
-            <a id="linkitem" href="#">Produtos</a>
+            <a href="index.html">Produtos</a>
         </div>
 
         <div class="bemvindo">
@@ -98,20 +95,26 @@
         <div class="Produtos">
             <div class="box" id="box1">
                 <img src="imgs/azul.jfif" alt="Tinta azul">
-                <button class="confira">Conferir</button>
+                <a href="Detalhes.html">
+                    <button class="confira">Conferir</button>
+                </a>
             </div>
             <div class="box" id="box2">
                 <img src="imgs/amarela.jfif" alt="Tinta amarela">
-                <button class="confira">Conferir</button>
+                <a href="Detalhes.html">
+                    <button class="confira">Conferir</button>
+                </a>
             </div>
             <div class="box" id="box3">
                 <img src="imgs/vermelha.jfif" alt="Tinta vermelha">
-                <button class="confira">Conferir</button>
+                <a href="Detalhes.html">
+                    <button class="confira">Conferir</button>
+                </a>
             </div>
         </div>
 
         <footer class="footer">
-            <p>&copy; 2025 Loja de Tintas. Todos os direitos reservados.</p>
+            <a href="Contato.html">Ajuda</a>
         </footer>
     </div>
 </body>

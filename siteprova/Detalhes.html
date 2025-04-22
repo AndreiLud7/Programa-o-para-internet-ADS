@@ -68,30 +68,40 @@
       gap: 20px;
     }
 
-    button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px;
-      background-color: black;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      gap: 8px;
-      max-width: 250px;
-      width: 100%;
-    }
+    .botao-carrinho {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  gap: 8px;
+  max-width: 250px;
+  width: 100%;
+  text-decoration: none;
+  font-family: inherit;
+}
+.botao-carrinho img {
+  height: 20px;
+  width: 20px;
+}
+.botao-carrinho:hover{
+  background-color: rgb(125, 125, 233);
 
-    button img {
-      height: 20px;
-      width: 20px;
-    }
+}
 
     .Preco {
       color: green;
       font-weight: bold;
     }
+    a{
+            text-decoration: none;
+            color: inherit;
+            font-size: 20px;
+        }
   </style>
 </head>
 
@@ -119,17 +129,17 @@
           <li>Marca: Coral</li>
           <li>Categoria: Tinta</li>
         </ul>
-        <button type="button">
+        <a href="Carrinho.html" class="botao-carrinho">
           <img src="imgs/reshot-icon-empty-cart-FH5UR2WGKN.svg" alt="" />
           Adicionar ao Carrinho
-        </button>
+        </a>
       </div>
     </div>
   </div>
 
-  <footer>
-    <p>&copy; 2025 Loja de Tintas. Todos os direitos reservados.</p>
-  </footer>
+  <footer class="footer">
+    <a href="Contato.html">Ajuda</a>
+</footer>
 </body>
 
 </html>
