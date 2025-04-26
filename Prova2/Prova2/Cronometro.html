@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cronômetro</title>
+</head>
+<style>
+
+    body{
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+    #container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        padding: 40px;
+    }
+    #acoes button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        width: 50px;
+        height: 40px;
+    }
+    #acoes button img{
+        width: 100%;
+        height: 100%;
+    }
+
+</style>
+
+<body>
+    <div id="container">
+        <h2 id="timer">00:00:00</h2>
+
+        <div id="acoes">
+            <button id="reset"><img src="img/circular-arrow_998622.png" alt=""></button>
+            <button id="inicio" action="start"><img src="img/pause_12966972.png" alt=""></button>
+            <button id="salvar"><img src="img/save_2824201.png" alt=""></button>
+        </div>
+
+        <div id="marcas"></div>
+    </div>
+
+    <script>
+        const timer = document.getElementById('timer');
+        const botaoInicio = document.getElementById('inicio');
+        const botaoReset = document.getElementById('reset');
+        const botaoSalvar = document.getElementById('salvar');
+        const listamarcas = document.getElementById('marcas');
+
+        let tempoInicial = null;
+        let tempoPausado = 0;
+        let rodando = false;
+        let intervalId = 0;
+        let marcas = [];
+
+        const formatatempo = (tempo) => {
+            const horas = Math.floor(tempo / 3600);
+            const minutos = Math.floor((tempo % 3600) / 60);
+            const segundos = tempo % 60;
+
+            return `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+        };
+
+        const atualizarDisplay = () => {
+            const agora = new Date();
+            const tempoDecorrido = agora - tempoInicial + tempoPausado;
+            const segundosTotais = Math.floor(tempoDecorrido / 1000);
+            timer.innerText = formatatempo(segundosTotais);
+        };
+
+        const iniciarPausar = () => {
+            if (!rodando) {
+                tempoInicial = new Date();
+                intervalId = setInterval(atualizarDisplay, 1000);
+                rodando = true;
+                botaoInicio.setAttribute('action', 'pause');
+            } else {
+                clearInterval(intervalId);
+                const agora = new Date();
+                tempoPausado += agora - tempoInicial;
+                rodando = false;
+                botaoInicio.setAttribute('action', 'start');
+            }
+        };
+
+        const resetar = () => {
+            clearInterval(intervalId);
+            tempoInicial = null;
+            tempoPausado = 0;
+            rodando = false;
+            marcas = [];
+            timer.innerText = '00:00:00';
+            listamarcas.innerHTML = '';
+        };
+
+        const salvarMarca = () => {
+            const agora = new Date();
+            const tempoDecorrido = tempoInicial ? agora - tempoInicial + tempoPausado : tempoPausado;
+            const segundosTotais = Math.floor(tempoDecorrido / 1000);
+            marcas.push(segundosTotais);
+
+            const marca = document.createElement('p');
+            marca.textContent = `Marca ${marcas.length}: ${formatatempo(segundosTotais)}`;
+            listamarcas.appendChild(marca);
+        };
+
+        botaoInicio.addEventListener('click', iniciarPausar);
+        botaoReset.addEventListener('click', resetar);
+        botaoSalvar.addEventListener('click', salvarMarca);
+    </script>
+</body>
+
+</html>

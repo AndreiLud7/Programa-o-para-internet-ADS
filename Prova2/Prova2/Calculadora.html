@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: rgb(30, 174, 241);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+
+
+        }
+
+        .calculadora {
+            border-radius: 20px;
+            width: 80vh;
+            height: 80vh;
+            background-color: gray;
+            box-sizing: border-box;
+
+
+        }
+
+        .display {
+            border-radius: 20px 20px 0px 0px;
+            background-color: black;
+            width: 100%;
+            height: 25%;
+            font-size: 30pt;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            color: white;
+
+        }
+
+        .button {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background-color: aliceblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24pt;
+
+
+        }
+
+        .teclado {
+            display: grid;
+            height: 75%;
+            grid-template-areas:
+                "buttonMais buttonMenos buttonMult buttonDiv"
+                "bnt7 bnt8 bnt9 bntequal"
+                "bnt4 bnt5 bnt6 bntequal"
+                "bnt1 bnt2 bnt3 bntequal"
+                "bnt0 bntdot bntClear bntequal"
+            ;
+
+        }
+
+        #bntMais {
+            grid-area: buttonMais;
+            background-color: rgb(199, 199, 199);
+        }
+
+        #bntMenos {
+            grid-area: buttonMenos;
+            background-color: rgb(199, 199, 199);
+
+        }
+
+        #bntMult {
+            grid-area: buttonMult;
+            background-color: rgb(199, 199, 199);
+
+        }
+
+        #bntDiv {
+            grid-area: buttonDiv;
+            background-color: rgb(199, 199, 199);
+
+        }
+
+        #bnt0 {
+            grid-area: bnt0;
+        }
+
+        #bnt1 {
+            grid-area: bnt1;
+        }
+
+        #bnt2 {
+            grid-area: bnt2;
+        }
+
+        #bnt3 {
+            grid-area: bnt3;
+        }
+
+        #bnt4 {
+            grid-area: bnt4;
+        }
+
+        #bnt5 {
+            grid-area: bnt5;
+        }
+
+        #bnt6 {
+            grid-area: bnt6;
+        }
+
+        #bnt7 {
+            grid-area: bnt7;
+        }
+
+        #bnt8 {
+            grid-area: bnt8;
+        }
+
+        #bnt9 {
+            grid-area: bnt9;
+        }
+
+        #bntequal {
+            grid-area: bntequal;
+            background-color: rgb(255, 30, 0);
+        }
+
+        #bntdot {
+            grid-area: bntdot;
+        }
+
+        #bntClear {
+            grid-area: bntClear;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="calculadora">
+        <div class="display" id="display">0</div>
+        <div class="teclado">
+            <div class="button buttonOp" id="bntMais">+</div>
+            <div class="button buttonOp" id="bntMenos">-</div>
+            <div class="button buttonOp" id="bntMult">*</div>
+            <div class="button buttonOp" id="bntDiv">/</div>
+            <div class="button ButtonChar buttonNumber" id="bnt1">1</div>
+            <div class="button ButtonChar buttonNumber" id="bnt2">2</div>
+            <div class="button ButtonChar buttonNumber" id="bnt3">3</div>
+            <div class="button ButtonChar buttonNumber" id="bnt4">4</div>
+            <div class="button ButtonChar buttonNumber" id="bnt5">5</div>
+            <div class="button ButtonChar buttonNumber" id="bnt6">6</div>
+            <div class="button ButtonChar buttonNumber" id="bnt7">7</div>
+            <div class="button ButtonChar buttonNumber" id="bnt8">8</div>
+            <div class="button ButtonChar buttonNumber" id="bnt9">9</div>
+            <div class="button ButtonChar buttonNumber" id="bnt0">0</div>
+            <div class="button ButtonChar" id="bntdot">.</div>
+            <div class="button ButtonChar" id="bntClear">C</div>
+            <div class="button Button Equal" id="bntequal">=</div>
+        </div>
+    </div>
+
+    <script>
+        let display = document.querySelector("#display");
+        let equacao = "";
+
+        function equacaoValida(equacao) {
+            return /^[0-9+\-*/().\s]+$/.test(equacao);
+        }
+
+        function temOperadoresInvalidos(equacao) {
+            return /[\+\-\*\/]{2,}/.test(equacao);
+        }
+
+        function inicioOuFimInvalido(equacao) {
+            return /^[+\/*]/.test(equacao) || /[+\-*/.]$/.test(equacao);
+        }
+
+        document.querySelectorAll(".button").forEach(button => {
+            button.addEventListener('click', () => {
+                let valor = button.textContent;
+
+                if (valor === "C") {
+                    equacao = "";
+                    display.textContent = "0";
+                } else if (valor === "=") {
+                    if (equacaoValida(equacao) && temOperadoresInvalidos(equacao) == false && inicioOuFimInvalido(equacao)== false) {
+                        display.textContent = eval(equacao);
+                        equacao = display.textContent;
+                    } else {
+                        alert("Equação inválida.");
+                    }
+                } else {
+                    equacao += valor;
+                    display.textContent = equacao;
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+</body>
+
+</html>
