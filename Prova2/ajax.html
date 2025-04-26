@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Busca de Filmes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #resultados img {
+      width: 100px;
+      height: auto;
+    }
+    .filme {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎬 Buscar Filmes</h1>
+
+  <input type="text" id="campoBusca" placeholder="Digite o nome do filme">
+  <button id="botaoBuscar">Buscar</button>
+
+  <div id="resultados"></div>
+
+  <script>
+    document.getElementById("botaoBuscar").addEventListener("click", () => {
+      const busca = document.getElementById("campoBusca").value.trim();
+
+      const url = `http://www.omdbapi.com/?apikey=4a3b711b&s=${encodeURIComponent(busca)}`;
+
+      fetch(url)
+        .then(resposta => resposta.json())
+        .then(dados => {
+          if (dados.Response === "True") {
+            document.getElementById("resultados").innerHTML = "";
+
+            dados.Search.forEach(filme => {
+              const div = document.createElement("div");
+              div.className = "filme";
+              div.innerHTML = `
+                <img src="${filme.Poster !== "N/A" ? filme.Poster : "https://via.placeholder.com/100x150"}">
+                <h3>${filme.Title}</h3>
+                <p>${filme.Year}</p>
+              `;
+              document.getElementById("resultados").appendChild(div);
+            });
+
+          } else {
+            document.getElementById("resultados").innerHTML = "<p>Nenhum filme encontrado.</p>";
+          }
+        })
+        .catch(erro => {
+          document.getElementById("resultados").innerHTML = "<p>Erro ao buscar filmes.</p>";
+          console.error("Erro na requisição:", erro);
+        });
+    });
+  </script>
+
+</body>
+</html>
