@@ -171,28 +171,24 @@
     <script>
         let display = document.querySelector("#display");
         let equacao = "";
-
-        function equacaoValida(equacao) {
-            return /^[0-9+\-*/().\s]+$/.test(equacao);
-        }
-
+    
         function temOperadoresInvalidos(equacao) {
             return /[\+\-\*\/]{2,}/.test(equacao);
         }
-
+    
         function inicioOuFimInvalido(equacao) {
             return /^[+\/*]/.test(equacao) || /[+\-*/.]$/.test(equacao);
         }
-
+    
         document.querySelectorAll(".button").forEach(button => {
             button.addEventListener('click', () => {
                 let valor = button.textContent;
-
+    
                 if (valor === "C") {
                     equacao = "";
                     display.textContent = "0";
                 } else if (valor === "=") {
-                    if (equacaoValida(equacao) && temOperadoresInvalidos(equacao) == false && inicioOuFimInvalido(equacao)== false) {
+                    if (!temOperadoresInvalidos(equacao) && !inicioOuFimInvalido(equacao)) {
                         display.textContent = eval(equacao);
                         equacao = display.textContent;
                     } else {

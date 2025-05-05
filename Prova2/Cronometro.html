@@ -5,15 +5,47 @@
     <meta charset="UTF-8">
     <title>Cronômetro</title>
 </head>
+<style>
+
+    body{
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+    #container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        padding: 40px;
+    }
+    #acoes button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        width: 50px;
+        height: 40px;
+    }
+    #acoes button img{
+        width: 100%;
+        height: 100%;
+    }
+
+</style>
 
 <body>
     <div id="container">
         <h2 id="timer">00:00:00</h2>
 
         <div id="acoes">
-            <button id="reset">Resetar</button>
-            <button id="inicio" action="start">Iniciar / Pausar</button>
-            <button id="salvar">Salvar Marca</button>
+            <button id="reset"><img src="img/circular-arrow_998622.png" alt=""></button>
+            <button id="inicio" action="start"><img src="img/pause_12966972.png" alt=""></button>
+            <button id="salvar"><img src="img/save_2824201.png" alt=""></button>
         </div>
 
         <div id="marcas"></div>
